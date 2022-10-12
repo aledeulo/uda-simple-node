@@ -14,9 +14,8 @@ before_script:
   - echo "no tests"
 
 script:
-  - echo "Triggering build number $TRAVIS_BUILD_NUMBER"
   - docker build -t uda-simple-node .
-  - docker tag uda-simple-node $DOCKER_HUB/uda-simple-node:$TRAVIS_BUILD_NUMBER
+  - docker tag uda-simple-node $DOCKER_HUB/uda-simple-node:${TRAVIS_BUILD_NUMBER}
 
 # Tasks to perform after the process is successful. Formatting the Docker username and password as below enables you to programmatically log in without having the password exposed in logs.
 after_success:
